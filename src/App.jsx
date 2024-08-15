@@ -41,6 +41,10 @@ function App() {
     })
   }
 
+  const handleRemoveFromCart = (product) => {
+
+  }
+
   return (
     <BrowserRouter>
       <nav>

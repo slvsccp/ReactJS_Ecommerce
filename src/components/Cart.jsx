@@ -1,6 +1,12 @@
 import CartItem from "./CartItem"
+import CheckouButton from "./CheckouButton"
 
 function Cart({ cartItems, onUpdateCart }) {
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  )
+
   return (
     <div>
       <h1>Carrinho</h1>
@@ -12,6 +18,10 @@ function Cart({ cartItems, onUpdateCart }) {
                 <CartItem key={item.id} item={item} onUpdateCart={onUpdateCart} />
               ))
             }
+            <div className="total">
+              <p>Total: ${totalPrice.toFixed(2)}</p>
+              <CheckouButton />
+            </div>
           </>
         )
       }
