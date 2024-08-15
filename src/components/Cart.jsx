@@ -7,7 +7,7 @@ function Cart({ cartItems }) {
           <>
             {
               cartItems.map((item) => (
-                <p key={item.id}>{item.name}</p>
+                <p key={item.id}>{item.name} - {item.quantity}</p>
               ))
             }
           </>
