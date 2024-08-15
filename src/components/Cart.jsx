@@ -1,4 +1,6 @@
-function Cart({ cartItems }) {
+import CartItem from "./CartItem"
+
+function Cart({ cartItems, onUpdateCart }) {
   return (
     <div>
       <h1>Carrinho</h1>
@@ -7,7 +9,7 @@ function Cart({ cartItems }) {
           <>
             {
               cartItems.map((item) => (
-                <p key={item.id}>{item.name} - {item.quantity}</p>
+                <CartItem key={item.id} item={item} onUpdateCart={onUpdateCart} />
               ))
             }
           </>
