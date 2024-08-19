@@ -1,7 +1,7 @@
 import CartItem from "./CartItem"
 import CheckouButton from "./CheckouButton"
 
-function Cart({ cartItems, onUpdateCart }) {
+function Cart({ cartItems, onUpdateCart, onRemoveFromCart }) {
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
@@ -15,7 +15,12 @@ function Cart({ cartItems, onUpdateCart }) {
           <>
             {
               cartItems.map((item) => (
-                <CartItem key={item.id} item={item} onUpdateCart={onUpdateCart} />
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  onUpdateCart={onUpdateCart}
+                  onRemoveFromCart={onRemoveFromCart}
+                />
               ))
             }
             <div className="total">

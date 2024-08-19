@@ -1,4 +1,4 @@
-function CartItem({ item, onUpdateCart }) {
+function CartItem({ item, onUpdateCart, onRemoveFromCart }) {
   return (
     <div className="cart-item">
       <h3>{item.name}</h3>
@@ -9,7 +9,7 @@ function CartItem({ item, onUpdateCart }) {
           value={item.quantity}
           onChange={(e) => onUpdateCart(item, parseInt(e.target.value))}
         />
-        <button>Remover</button>
+        <button onClick={(e) => onRemoveFromCart(item)}>Remover</button>
       </div>
     </div>
   )

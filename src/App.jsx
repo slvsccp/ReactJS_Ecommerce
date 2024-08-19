@@ -42,7 +42,8 @@ function App() {
   }
 
   const handleRemoveFromCart = (product) => {
-
+    toast.error(`${product.name} foi removido com sucesso.`);
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== product.id))
   }
 
   return (
@@ -57,7 +58,11 @@ function App() {
           <Route
             path='/cart'
             element={
-              <Cart cartItems={cartItems} onUpdateCart={handleUpdateCart} />
+              <Cart
+                cartItems={cartItems}
+                onUpdateCart={handleUpdateCart}
+                onRemoveFromCart={handleRemoveFromCart}
+              />
             }
           />
           <Route path='/thank-you' element={<ThankYouPage />} />
